@@ -26,7 +26,7 @@ function calculate() {
     resultText.textContent = "Invalid years. Pls input a valid time."
     return;
   }
-    const result = (pAmount * iRate * y) + pAmount;
+    const result = pAmount * Math.pow((1 + iRate / 1), 1 * y);
     resultText.textContent = `Total: $${result.toFixed(1)}`;
   }
 }
