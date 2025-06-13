@@ -11,25 +11,6 @@ const totalIncome = document.getElementById("totalIncome");
 const totalExpenses = document.getElementById("totalExpenses");
 const balanceAmount = document.getElementById("balance");
 
-function updateSummary() {
-  let income = 0;
-  let expenses = 0;
-
-  infoHistory.forEach(transaction => {
-    if (transaction.category === "Income") {
-      income += transaction.amount;
-    } else if (transaction.category === "Expense") {
-      expenses += transaction.amount;
-    }
-  });
-
-  const balance = income - expenses;
-
-  totalIncome.textContent = `₹${income.toFixed(2)}`;
-  totalExpenses.textContent = `₹${expenses.toFixed(2)}`;
-  balanceAmount.textContent = `₹${balance.toFixed(2)}`;
-}
-
 expenseForm.addEventListener('submit', function(event){
   event.preventDefault();
 
@@ -78,6 +59,28 @@ expenseForm.addEventListener('submit', function(event){
 
   updateSummary();
 });
+
+function updateSummary() {
+  // Calculate totals from infoHistory
+  let income = 0;
+  let expenses = 0;
+
+  infoHistory.forEach(transaction => {
+    if (transaction.category === 'income') {
+      income += transaction.amount;
+    } else if (transaction.category === 'expense') {
+      expenses += transaction.amount;
+    }
+  });
+
+  // Calculate balance
+  const balance = income - expenses;
+
+  // Update DOM elements
+  totalIncome.textContent = income.toFixed(2);
+  totalExpenses.textContent = expenses.toFixed(2);
+  balanceAmount.textContent = balance.toFixed(2);
+}
 
 expenseForm.addEventListener('reset', function(event){
   event.preventDefault();
