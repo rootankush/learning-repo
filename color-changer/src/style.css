@@ -1,0 +1,43 @@
+body {
+    background-color: white;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.colorButton {
+    margin: 20px;
+    padding: 30px;
+    font-size: 20px;
+    font-family: monospace;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#greyBtn {
+    background-color: grey;
+}
+
+#blueBtn {
+    background-color: blue;
+}
+
+#whiteBtn {
+    background-color: white;
+}
+
+#yellowBtn {
+    background-color: yellow;
+}
